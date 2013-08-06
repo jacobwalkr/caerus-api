@@ -1,4 +1,4 @@
-wbesu-events
-============
+caerus-api
+==========
 
-A rewrite of my dead-in-the-water events system for the West Bridgford ESU
+The API for Project Caerus. Built using MVC and Front Controller architectures.
