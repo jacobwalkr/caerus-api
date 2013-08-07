@@ -1,9 +1,9 @@
 <?php
 static class System
 {
-    public static function LoadModel($model)
+    public static function LoadService($service)
     {
-        require 'Application/Model/' . $model . '.php';
-        return new $model();
+        require 'Application/Model/' . $service . '.php';
+        return new $service();
     }
 }
