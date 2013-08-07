@@ -5,7 +5,7 @@ nbproject/
 .idea/
 
 # Files containing secret keys like passwords and shit
-secret/
+Application/Config/database.json
 
 # Logs and shit
 apache-logs
