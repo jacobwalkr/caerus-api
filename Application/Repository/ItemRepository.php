@@ -11,7 +11,6 @@ class ItemRepository
     public function FindById($id)
     {
         $stmt = $this->db->query('SELECT * FROM items LIMIT 1');
-
-        print_r($stmt->fetch(PDO::FETCH_ASSOC));
+        return $stmt->fetch(PDO::FETCH_OBJ);
     }
 }
