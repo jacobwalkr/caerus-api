@@ -6,7 +6,6 @@ class System
     public static function Initialise()
     {
         self::loadConfig();
-        self::$Database = self::loadDatabaseConnector();
     }
 
     public static function LoadService($service)
@@ -44,28 +43,5 @@ class System
 
         // Only database config to consider now
         self::$config['database'] = json_decode(file_get_contents('Application/Config/database.json'));
-    }
-
-    public static function LoadDatabaseConnector()
-    {
-        $dbConfig = self::$config['database'];
-        $connector = $dbConfig->connector;
-        $dbn = $dbConfig->database;
-        $host = $dbConfig->host;
-        $user = $dbConfig->user;
-        $password = $dbConfig->password;
-
-        $dsn = $connector . ':dbname=' . $dbn . ';host=' . $host;
-
-        try
-        {
-            $pdo = new PDO($dsn, $user, $password);
-        }
-        catch (PDOException $exception)
-        {
-            error_log($exception->getMessage());
-        }
-
-        return $pdo;
     }
 }
