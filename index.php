@@ -13,6 +13,7 @@ foreach (glob('Core/*/') as $folder)
     }
 }
 
+System::Initialise();
 Handler::Handle($_SERVER['REQUEST_URI']);
 
 ?>
