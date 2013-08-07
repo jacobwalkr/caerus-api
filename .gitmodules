@@ -1,0 +1,3 @@
+[submodule "Application/View"]
+	path = Application/View
+	url = https://github.com/jacobwwalker/caerus-web.git
