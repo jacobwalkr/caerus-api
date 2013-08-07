@@ -6,28 +6,23 @@ class Controller
         $this->data = $data;
         $this->query = $query;
 
-        if (is_array($this->usesRepositories))
+        /*if (is_array($this->usesModels))
         {
-            foreach ($this->usesRepositories as $useRepository)
+            foreach ($this->usesModels as $useRep)
             {
-                $repositoryName = ucfirst(strtolower($useRepository)) . 'Repository';
-                require 'Application/Repository/' . $repositoryName . '.php';
+                $modelName = ucfirst(strtolower($useModel)) . 'Repository';
+                require 'Application/Repository/' . $modelName . '.php';
 
-                $this->$repositoryName = new $repositoryName();
+                $this->$modelName = new $modelName();
             }
-        }
+        }*/
     }
 
     public function Go($action)
     {
         // No error checking yet
-        if (strlen($action) > 0)
-        {
-            $this->$action();
-        }
-        else
-        {
-            $this->index();
-        }
+        // Display view (comes from inheriting class implementing action
+        $view = (strlen($action) > 0) ? $this->$action() : $this->index();
+        $view->display();
     }
 }

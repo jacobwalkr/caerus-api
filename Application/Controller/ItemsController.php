@@ -1,11 +1,19 @@
 <?php
 class ItemsController extends Controller
 {
-    protected $usesRepositories = array('item');
+    protected $usesModels = array('Item');
 
     public function view()
     {
         $searchId = $this->data[0];
-        $item = $this->ItemRepository->FindById($searchId);
+
+        // This should be model code
+        $repository = new Repository('items');
+        $item = $repository->FindRowById($searchId);
+
+        $item->resolved = $item->resolved ? true : false;
+        // End disgusting model code
+
+        return new View('item', $item);
     }
 }
