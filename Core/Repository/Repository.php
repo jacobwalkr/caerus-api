@@ -12,8 +12,22 @@ class Repository
 
     public function FindRowById($id)
     {
-        $stmt = $this->db->query("SELECT * FROM $this->table LIMIT 1");
+        $stmt = $this->db->prepare("SELECT * FROM $this->table LIMIT 1");
 
         return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function FetchRowsAsArray()
+    {
+        $stmt = $this->db->query("SELECT * FROM $this->table");
+
+        $resultArray = array();
+
+        while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+        {
+            $resultArray[] = $row;
+        }
+
+        return $resultArray;
     }
 }
