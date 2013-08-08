@@ -1,5 +1,5 @@
 <?php
-class Model
+abstract class Model implements JsonSerializable
 {
     // Nothing here yet
 }

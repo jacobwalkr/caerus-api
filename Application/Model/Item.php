@@ -1,5 +1,5 @@
 <?php
-class Item extends Model implements JsonSerializable
+class Item extends Model
 {
     public function __construct($id)
     {
