@@ -6,16 +6,14 @@ class Controller
         $this->data = $data;
         $this->query = $query;
 
-        /*if (is_array($this->usesModels))
+        if (is_array($this->usesModels))
         {
-            foreach ($this->usesModels as $useRep)
+            foreach ($this->usesModels as $useModel)
             {
-                $modelName = ucfirst(strtolower($useModel)) . 'Repository';
-                require 'Application/Repository/' . $modelName . '.php';
-
-                $this->$modelName = new $modelName();
+                $modelName = ucfirst(strtolower($useModel));
+                require 'Application/Model/' . $modelName . '.php';
             }
-        }*/
+        }
     }
 
     public function Go($action)

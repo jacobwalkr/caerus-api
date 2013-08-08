@@ -5,15 +5,7 @@ class ItemsController extends Controller
 
     public function view()
     {
-        $searchId = $this->data[0];
-
-        // This should be model code
-        $repository = new Repository('items');
-        $item = $repository->FindRowById($searchId);
-
-        $item->resolved = $item->resolved ? true : false;
-        // End disgusting model code
-
+        $item = new Item($this->data[0]);
         return new View('item', $item);
     }
 }
