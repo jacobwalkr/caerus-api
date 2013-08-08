@@ -5,9 +5,6 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        $repository = new Repository('categories');
-        $categoryCollection = new CategoryCollection();
-
-        return new View('json_encode_model', $categoryCollection);
+        return new View('json_encode_model', new CategoryCollection());
     }
 }
