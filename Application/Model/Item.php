@@ -1,5 +1,5 @@
 <?php
-class Item extends Model
+class Item extends Model implements JsonSerializable
 {
     public function __construct($id)
     {
@@ -11,5 +11,10 @@ class Item extends Model
     public function __get($var)
     {
         return $this->item->$var;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->item;
     }
 }
