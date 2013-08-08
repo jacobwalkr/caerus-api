@@ -1,7 +1,12 @@
 <?php
 class ItemsController extends Controller
 {
-    protected $usesModels = array('Item');
+    protected $usesModels = array('Item', 'ItemCollection');
+
+    public function index()
+    {
+        return new View('json_encode_model', new ItemCollection());
+    }
 
     public function view()
     {
