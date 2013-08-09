@@ -12,7 +12,9 @@ class Repository
 
     public function FindRowById($id)
     {
-        $stmt = $this->db->prepare("SELECT * FROM $this->table LIMIT 1");
+        $stmt = $this->db->prepare("SELECT * FROM $this->table WHERE id=:id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_OBJ);
     }

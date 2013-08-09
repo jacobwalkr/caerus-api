@@ -11,6 +11,6 @@ class ItemsController extends Controller
     public function view()
     {
         $item = new Item($this->data[0]);
-        return new View('item', $item);
+        return new View('json_encode_model', $item);
     }
 }
