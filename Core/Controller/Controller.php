@@ -10,8 +10,7 @@ class Controller
         {
             foreach ($this->usesModels as $useModel)
             {
-                $modelName = ucfirst(strtolower($useModel));
-                require 'Application/Model/' . $modelName . '.php';
+                require 'Application/Model/' . $useModel . '.php';
             }
         }
     }
