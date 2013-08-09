@@ -18,9 +18,34 @@ class Controller
 
     public function Go($action)
     {
-        // No error checking yet
-        // Display view (comes from inheriting class implementing action
-        $view = (strlen($action) > 0) ? $this->$action() : $this->index();
+        try
+        {
+            if (strlen($action) > 0)
+            {
+                if (method_exists(this, $action))
+                {
+                    $view = $this->$action();
+                }
+                else
+                {
+                    throw new Exception("The action '$action' does not exist.", 404)
+                }
+            }
+            else
+            {
+                $view = $this->index();
+            }
+        }
+        catch (Exception $exception)
+        {
+            // Process error
+        }
+
         $view->display();
+    }
+
+    protected function name()
+    {
+
     }
 }
