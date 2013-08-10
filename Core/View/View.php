@@ -12,7 +12,17 @@ class View
         $this->parameters = $parameters;
     }
 
-    public function display()
+    public function AddParameter($key, $value)
+    {
+        $this->parameters[$key] = $value;
+    }
+
+    public function GetParameter($key)
+    {
+        return $this->parameters[$key];
+    }
+
+    public function Display()
     {
         $viewActual = '?>' . file_get_contents('Application/View/' . $this->viewName . '.template.php');
 

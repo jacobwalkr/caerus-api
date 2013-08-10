@@ -5,8 +5,7 @@ class ItemsController extends Controller
 
     public function index()
     {
-        $parameters = array('callback' => $this->query['callback']);
-        return new View('json_encode_model', new ItemCollection(), $parameters);
+        return new View('json_encode_model', new ItemCollection());
     }
 
     public function view()
