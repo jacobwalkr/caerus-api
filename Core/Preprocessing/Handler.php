@@ -22,7 +22,22 @@ class Handler
         // Split the query string up
         if (isset($split_request[1]))
         {
-            $nice_query = explode('&', $split_request[1]);
+            $nice_query_dirty = explode('&', $split_request[1]);
+            $nice_query = array();
+
+            foreach ($nice_query_dirty as $query)
+            {
+                $bits = explode('=', $query);
+
+                if (isset($bits[1]))
+                {
+                    $nice_query[$bits[0]] = $bits[1];
+                }
+                else
+                {
+                    $nice_query[$bits[0]] = true;
+                }
+            }
         }
         else
         {
