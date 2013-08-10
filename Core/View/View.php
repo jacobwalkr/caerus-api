@@ -3,11 +3,13 @@ class View
 {
     private $viewName;
     private $model;
+    private $parameters;
 
-    public function __construct($viewName, $model)
+    public function __construct($viewName, Model $model, array $parameters = array())
     {
         $this->viewName = $viewName;
         $this->model = $model;
+        $this->parameters = $parameters;
     }
 
     public function display()

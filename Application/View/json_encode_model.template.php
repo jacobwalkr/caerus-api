@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/javascript');
-$callback = $this->model->getCallback();
+$callback = $this->parameters['callback'];
 $json = json_encode($this->model);
 
 if (!is_null($callback))

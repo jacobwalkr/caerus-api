@@ -2,14 +2,10 @@
 class ItemCollection extends Model
 {
     protected $collection;
-    protected $callback;
 
-    public function __construct($callback)
+    public function __construct()
     {
         // Currently returns all of them
-        $this->collection = array();
-        $this->callback = $callback;
-
         $repository = new Repository('items');
         $this->collection = $repository->FetchRowsAsArray();
     }
@@ -17,10 +13,5 @@ class ItemCollection extends Model
     public function jsonSerialize()
     {
         return $this->collection;
-    }
-
-    public function getCallback()
-    {
-        return $this->callback;
     }
 }
