@@ -1,4 +1,14 @@
 <?php
-//print_r($this->model);
-print json_encode($this->model, JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT);
+header('Content-Type: application/javascript');
+$callback = $this->model->getCallback();
+$json = json_encode($this->model);
+
+if (!is_null($callback))
+{
+    print $callback . '(' . $json . ');';
+}
+else
+{
+    print $json;
+}
 ?>
