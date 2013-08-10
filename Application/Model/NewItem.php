@@ -39,7 +39,7 @@ class NewItem extends Model
             }
             else
             {
-                $this->json->error = stdClass();
+                $this->json->error = new stdClass();
                 $this->json->error->code = 500;
                 $this->json->error->message = 'Database error - could not insert item';
             }
