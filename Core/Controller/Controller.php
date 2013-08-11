@@ -31,4 +31,9 @@ class Controller
 
         $view->Display();
     }
+
+    protected function getPostData()
+    {
+        return @file_get_contents('php://input');
+    }
 }

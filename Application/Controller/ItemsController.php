@@ -16,7 +16,7 @@ class ItemsController extends Controller
 
     public function add()
     {
-        $json = @file_get_contents('php://input');
+        $json = $this->getPostData();
 
         $item = new NewItem();
         $response = $item->BuildFromJSON($json);
