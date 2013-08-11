@@ -24,6 +24,9 @@ class View
 
     public function Display()
     {
+        // All results in JSON, really
+        header('Content-Type: application/javascript');
+
         $viewActual = '?>' . file_get_contents('Application/View/' . $this->viewName . '.template.php');
 
         ob_start();
