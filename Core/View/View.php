@@ -5,7 +5,7 @@ class View
     private $model;
     private $parameters;
 
-    public function __construct($viewName, Model $model, array $parameters = array())
+    public function __construct($viewName, $model, array $parameters = array())
     {
         $this->viewName = $viewName;
         $this->model = $model;

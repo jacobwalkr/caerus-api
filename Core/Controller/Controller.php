@@ -20,9 +20,18 @@ class Controller
 
     public function Go($action)
     {
-        // No error checking yet
-        // Display view (comes from inheriting class implementing action
-        $view = (strlen($action) > 0) ? $this->$action() : $this->index();
+        try
+        {
+            //$view = (strlen($action) > 0) ? $this->$action() : $this->index();
+            throw new HTTPError('Successful error!', 418);
+        }
+        catch (Exception $exception)
+        {
+            $view = new View('error_json', null, array(
+                'code' => $exception->getCode(),
+                'message' => $exception->getMessage()
+            ));
+        }
 
         foreach ($this->query as $key => $value)
         {
