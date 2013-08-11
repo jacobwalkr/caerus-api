@@ -22,8 +22,7 @@ class Controller
     {
         try
         {
-            //$view = (strlen($action) > 0) ? $this->$action() : $this->index();
-            throw new HTTPError('Successful error!', 418);
+            $view = (strlen($action) > 0) ? $this->$action() : $this->index();
         }
         catch (Exception $exception)
         {
