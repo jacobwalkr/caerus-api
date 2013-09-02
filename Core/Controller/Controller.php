@@ -44,4 +44,10 @@ class Controller
     {
         return @file_get_contents('php://input');
     }
+
+    protected function requireValidAccessToken()
+    {
+        $repository = new Repository(`access_tokens`);
+        $id = $repository->GetUserFromAccessToken($this->query['access_token']);
+    }
 }
