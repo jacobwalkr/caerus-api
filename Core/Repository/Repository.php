@@ -2,12 +2,15 @@
 class Repository
 {
     protected $db;
-    protected $table;
 
-    public function __construct($table)
+    public function __construct($table = null)
     {
         $this->db = System::LoadDatabaseConnector();
-        $this->table = $table;
+
+        if (is_string($this->table))
+        {
+            $this->table = $table;
+        }
     }
 
     public function FindRowById($id)
