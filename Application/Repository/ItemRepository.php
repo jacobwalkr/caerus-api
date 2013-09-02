@@ -1,10 +1,11 @@
 <?php
 class ItemRepository extends Repository
 {
+    protected $table = 'items';
+
     public function CreateItemFromObject($object)
     {
-        // I feel like Repository shouldn't have a method
-        // this specific...
+        // I still feel wrong about this
         $stmt = $this->db->prepare('INSERT INTO `items` VALUES (null,:title,:description,'
         . ':reporter,null,:category,:reported_as,0,:latitude,:longitude,:radius)');
 

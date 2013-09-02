@@ -2,13 +2,9 @@
 
 class NewItem extends Model
 {
+    protected $usesRepositories = array('Item');
     private $repository;
     private $json;
-
-    public function __construct()
-    {
-        $this->repository = new Repository('items');
-    }
 
     public function BuildFromJSON($json)
     {
@@ -30,7 +26,7 @@ class NewItem extends Model
                 $object->radius = 150;
             }
 
-            $response = $this->repository->CreateItemFromObject($object);
+            $response = $this->repositories['Item']->CreateItemFromObject($object);
             $this->json = new stdClass();
 
             if (is_numeric($response))

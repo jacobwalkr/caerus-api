@@ -1,6 +1,8 @@
 <?php
 class UserRepository extends Repository
 {
+    protected $table = 'users';
+
     public function UserRecordExists($email)
     {
         $stmt = $this->db->prepare('SELECT COUNT(*) FROM `users` WHERE email=:email LIMIT 1');

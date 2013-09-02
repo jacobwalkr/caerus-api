@@ -3,15 +3,15 @@
 class User extends Model
 {
     protected $email;
+    protected $usesRepositories = array('User');
 
     public function __construct($email, $password)
     {
         $this->email = $email;
-        $repository = new Repository('users');
 
         if (!$repository->UserRecordExists($email))
         {
-            $repository->CreateUserFromEmailAndPassword($email, $password);
+            $this->repositories['User']->CreateUserFromEmailAndPassword($email, $password);
         }
 
         if ($repository->UserPassCorrect($email, $password))
