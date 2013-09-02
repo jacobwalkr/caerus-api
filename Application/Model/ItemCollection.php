@@ -6,6 +6,8 @@ class ItemCollection extends Model
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->collection = $this->repositories['Item']->FetchRowsAsArray();
     }
 
