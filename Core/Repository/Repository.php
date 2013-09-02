@@ -7,7 +7,7 @@ class Repository
     {
         $this->db = System::LoadDatabaseConnector();
 
-        if (is_string($this->table))
+        if (!is_string($this->table))
         {
             $this->table = $table;
         }
