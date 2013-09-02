@@ -2,12 +2,11 @@
 class ItemCollection extends Model
 {
     protected $collection;
+    protected $usesRepositories = array('Item');
 
     public function __construct()
     {
-        // Currently returns all of them
-        $repository = new Repository('items');
-        $this->collection = $repository->FetchRowsAsArray();
+        $this->collection = $this->repositories['Item']->FetchRowsAsArray();
     }
 
     public function jsonSerialize()

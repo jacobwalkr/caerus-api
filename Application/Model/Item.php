@@ -1,12 +1,14 @@
 <?php
 class Item extends Model
 {
-    private $item;
+    protected $item;
+    protected $usesRepositories = array('Item');
 
     public function __construct($id)
     {
-        $repository = new Repository('items');
-        $this->item = $repository->FindRowById($id);
+        parent::__construct();
+
+        $this->item = $this->repositories['Item']->FindRowById($id);
     }
 
     public function jsonSerialize()

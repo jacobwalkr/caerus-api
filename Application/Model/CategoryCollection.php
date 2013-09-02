@@ -5,10 +5,9 @@ class CategoryCollection extends Model
 
     public function __construct()
     {
-        // Currently returns all of them
-        $this->collection = array();
+        parent::__construct();
 
-        $repository = new Repository('categories');
+        $repository = new Repository('categories'); // Messy now
         $this->collection = $repository->FetchRowsAsArray();
     }
 
