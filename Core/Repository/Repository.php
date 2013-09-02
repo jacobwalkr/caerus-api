@@ -1,8 +1,8 @@
 <?php
 class Repository
 {
-    private $db;
-    private $table;
+    protected $db;
+    protected $table;
 
     public function __construct($table)
     {
